@@ -6,11 +6,16 @@ def is_float?(s)
 end
 
 def main
- stat= []
-
+ int_array = []
+ string_array = []
+ 
  loop do
-     puts "Please enter a number"
+     #continue to ask for a number
+     puts "Please enter a number or string"
      value= gets.chomp
+     
+#if value.to_i.to_s == input || value.to_f.to_s == value
+    #int_array << value.to_f
 
      if value == ''
 
@@ -18,18 +23,22 @@ def main
      end
      if is_float?(value)
 
-       stat << value
+       int_array << value
+       string_array << value
      end
 
    break if value == '' 
+   #this ends the loop if input is empty
  end
  # output data
 
- puts "The count equals " + stat.length.to_s
+ puts "The count equals " + int_array.length.to_s
  sum = 0.0
- stat.each {|value| sum+=value.to_f }
+ int_array.each {|value| sum+=value.to_f }
+ puts "The string is " + string_array.length.to_s
+ puts "Your array is " + string_array.join('-')
  puts "The sum equals " + sum.to_s
- puts "The average equals " + (sum/stat.length).to_s
+ puts "The average equals " + (sum/int_array.length).to_s
 end
 
 main if __FILE__ == $PROGRAM_NAME
